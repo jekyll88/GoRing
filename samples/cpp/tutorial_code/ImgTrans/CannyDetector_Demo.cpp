@@ -46,7 +46,7 @@ static void CannyThreshold(int, void*)
     //![copyto]
     src.copyTo( dst, detected_edges);
     //![copyto]
-
+printf("lowThreshold=%d\n",lowThreshold);
     //![display]
     imshow( window_name, dst );
     //![display]
@@ -78,11 +78,11 @@ int main( int, char** argv )
   namedWindow( window_name, WINDOW_AUTOSIZE );
   //![create_window]
 
+  lowThreshold = 11;
   //![create_trackbar]
   /// Create a Trackbar for user to enter threshold
   createTrackbar( "Min Threshold:", window_name, &lowThreshold, max_lowThreshold, CannyThreshold );
   //![create_trackbar]
-
   /// Show the image
   CannyThreshold(0, 0);
 
